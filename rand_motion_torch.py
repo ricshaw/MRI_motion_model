@@ -17,7 +17,7 @@ class RandMotion(object):
         return image
 
 class ToTensor(object):
-    """Convert ndarrays in sample to Tensors."""
+    """Convert ndarrays to Tensors."""
 
     def __call__(self, image):
         image = np.expand_dims(image, axis=0)
