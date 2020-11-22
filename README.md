@@ -5,6 +5,8 @@ It can be applied to both 2D or 3D images.\
 Please find the examples.py code to see how it can be used in your projects.\
 The code can be used for data augmentation in Deep Learning pipelines and can be integrated with Torchvision transforms.
 
+![Screenshot](images/output.jpg)
+
 # Citation
 
 If you use this code, please cite my paper:
