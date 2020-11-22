@@ -213,7 +213,7 @@ def computeWeights3D(masks, image_3d, times, num_movements):
     """Get weights for each 3D movement transform."""
     num_k = image_3d.size
     movement_k = np.floor(num_k * times).astype(int)
-    print('Movements k:', movement_k)
+    #print('k-space elements:', movement_k)
     crow   = int(0.5*image_3d.shape[0])
     ccol   = int(0.5*image_3d.shape[1])
     cdepth = int(0.5*image_3d.shape[2])
@@ -482,11 +482,12 @@ def rand_motion_3d(image_3d, cfg=None):
     return image_3d
 
 
-def rand_motion_2d(image_2d):
+def rand_motion_2d(image_2d, cfg):
     """Generate random 2D motion artefacts."""
 
     # Get config
-    cfg = get_default_config()
+    if cfg is None:
+        cfg = get_default_config()
 
     # Randomise params
     params = randomise2D(image_2d, cfg)
