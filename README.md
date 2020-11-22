@@ -9,9 +9,9 @@ The code can be used as a data augmentation in Deep Learning pipelines and can b
 
 If you use this code, please cite my paper:
 
-@inproceedings{Shaw2019,
-  title={MRI k-Space Motion Artefact Augmentation: Model Robustness and Task-Specific Uncertainty},
-  author={R. Shaw and C. Sudre and S. Ourselin and M. Cardoso},
-  booktitle={MIDL},
+@inproceedings{Shaw2019,\
+  title={MRI k-Space Motion Artefact Augmentation: Model Robustness and Task-Specific Uncertainty},\
+  author={R. Shaw and C. Sudre and S. Ourselin and M. Cardoso},\
+  booktitle={MIDL},\
   year={2019}
 }
