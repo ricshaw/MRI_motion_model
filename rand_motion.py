@@ -475,14 +475,14 @@ def rand_motion_3d(image_3d, cfg=None):
     gc.collect()
 
     # Undo image padding
-    image_3d = image_3d[cfg['pad_width']:rows-cfg['pad_width'], 
+    image_3d = image_3d[cfg['pad_width']:rows-cfg['pad_width'],
                         cfg['pad_width']:cols-cfg['pad_width'],
                         cfg['pad_width']:depth-cfg['pad_width']]
 
     return image_3d
 
 
-def rand_motion_2d(image_2d, cfg):
+def rand_motion_2d(image_2d, cfg=None):
     """Generate random 2D motion artefacts."""
 
     # Get config
@@ -612,7 +612,7 @@ def rand_motion_2d(image_2d, cfg):
         plt.imshow(np.log(np.abs(F_composite)+1))
         plt.title('Composite k-space')
         plt.show()
-        
+
     # Clean up
     del F_composite
     gc.collect()
