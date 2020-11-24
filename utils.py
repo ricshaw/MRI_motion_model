@@ -5,14 +5,20 @@ import cv2
 import matplotlib.pyplot as plt
 from rand_motion import rand_motion_3d, rand_motion_2d
 
+def normalise_image(image):
+    if (image.max() - image.min()) < 1e-5:
+        return image - image.min() + 1e-5
+    else:
+        return (image - image.min()) / (image.max() - image.min())
+
 def load_nii_image(filename):
-    img = nib.load(filename)
-    img = np.asanyarray(img.dataobj).astype(np.float32)
-    return (img - img.min()) / (img.max() - img.min())
+    image = nib.load(filename)
+    image = np.asanyarray(image.dataobj).astype(np.float32)
+    return normalise_image(image)
 
 def load_png(filename):
-    img = cv2.imread(filename, cv2.IMREAD_ANYDEPTH).astype(np.float32)
-    return (img - img.min()) / (img.max() - img.min())
+    image = cv2.imread(filename, cv2.IMREAD_ANYDEPTH).astype(np.float32)
+    return normalise_image(image)
 
 def display_image(img, axs, row=0, cmap='gray'):
     axs[row,0].imshow(img[int(img.shape[0]/2),...],cmap)

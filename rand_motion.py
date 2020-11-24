@@ -46,7 +46,10 @@ def get_default_config():
 
 def normalise_image(image):
     """Normalise image from 0 to 1."""
-    return (image - image.min()) / (image.max() - image.min())
+    if (image.max() - image.min()) < 1e-5:
+        return image - image.min() + 1e-5
+    else:
+        return (image - image.min()) / (image.max() - image.min())
 
 
 def getRotationMatrix2D(a):
